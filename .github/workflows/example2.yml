@@ -1,0 +1,24 @@
+name: my application ci/cd
+on: [push]
+env:
+  WORK_ON: Github Actions
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      OS_TYPE: ubuntu
+    steps:
+       - uses: actions/checkout@v3
+       - run: bash job1.sh
+
+
+  job2:
+    runs-on: macOS
+    env:
+      OS_TYPE: macOS
+    steps:
+      - uses: actions/setup-node
+        with:
+        node-version: 16
+      - uses: actions/checkout@v3
+      - run: node job2.js
