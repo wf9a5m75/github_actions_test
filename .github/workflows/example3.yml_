@@ -1,0 +1,28 @@
+name: my application ci/cd
+on: [push]
+env:
+  WORK_ON: Github Actions
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      OS_TYPE: ubuntu
+    outputs:
+      RESULT: ${{ steps.step2.outputs.MESSAGE }}
+    steps:
+       - uses: actions/checkout@v3
+       - id: step2
+         run: bash job1.sh
+
+  job2:
+    needs: job1
+    runs-on: windows-latest
+    env:
+      OS_TYPE: windows
+      JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: actions/checkout@v3
+      - run: node job2.js

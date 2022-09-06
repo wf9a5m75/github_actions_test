@@ -7,22 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OS_TYPE: ubuntu
-    outputs:
-      RESULT: ${{ steps.step2.outputs.MESSAGE }}
     steps:
-       - uses: actions/checkout@v3
-       - id: step2
-         run: bash job1.sh
+       - run: echo "Hello ${WORK_ON}! We run on ${OS_TYPE}"
 
-  job2:
-    needs: job1
-    runs-on: windows-latest
-    env:
-      OS_TYPE: windows
-      JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
-    steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: actions/checkout@v3
-      - run: node job2.js
+   job2:
+     runs-on: windows-latest
+     env:
+       OS_TYPE: windows
+     steps:
+        - run: echo "こんにちは、${WORK_ON}! ${OS_TYPE} OSの上で動いています"
