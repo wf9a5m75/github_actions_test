@@ -1,4 +1,4 @@
-name: my application ci/cd
+name: example2
 on: [push]
 env:
   WORK_ON: Github Actions
