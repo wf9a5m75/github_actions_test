@@ -13,9 +13,10 @@ jobs:
 
 
   job2:
-    runs-on: macOS
+    needs: job1
+    runs-on: windows-latest
     env:
-      OS_TYPE: macOS
+      OS_TYPE: windows
     steps:
       - uses: actions/setup-node@v3
         with:
