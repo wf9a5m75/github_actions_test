@@ -10,9 +10,9 @@ jobs:
     steps:
        - run: echo "Hello ${WORK_ON}! We run on ${OS_TYPE}"
 
-   job2:
-     runs-on: windows-latest
-     env:
-       OS_TYPE: windows
-     steps:
-        - run: echo "こんにちは、${WORK_ON}! ${OS_TYPE} OSの上で動いています"
+  job2:
+    runs-on: windows-latest
+    env:
+      OS_TYPE: windows
+    steps:
+      - run: echo "こんにちは、${WORK_ON}! ${OS_TYPE} OSの上で動いています"
