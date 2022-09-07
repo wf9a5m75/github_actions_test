@@ -37,4 +37,4 @@ jobs:
       OS_TYPE: ubuntu
       JOB2_RESULT: ${{ needs.job1.outputs.MESSAGE }}
     steps:
-        - run: echo "job2 output is '${JOB2_RESULT}'"
+        - run: echo "job2 output is $JOB2_RESULT"
