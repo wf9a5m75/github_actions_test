@@ -18,8 +18,6 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     env:
-      OS_TYPE: ubuntu
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
     steps:
-      - id: job2-step
-        run: echo "JOB1_RESULT: $JOB1_RESULT"
+      - run: echo "JOB1_RESULT: $JOB1_RESULT"
