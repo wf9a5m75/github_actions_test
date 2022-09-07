@@ -16,7 +16,7 @@ jobs:
 
   job2:
     needs: job1
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       OS_TYPE: windows
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
@@ -32,9 +32,9 @@ jobs:
 
   job3:
     needs: job2
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
-      OS_TYPE: ubuntu
+      OS_TYPE: macos
       JOB2_RESULT: ${{ needs.job2.outputs.MESSAGE }}
     steps:
         - run: echo "job2 output is $JOB2_RESULT / os = $OS_TYPE"
