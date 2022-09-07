@@ -11,8 +11,8 @@ console.log("::endgroup::");
 
 const nonMaskingTxt = "マスクされない";
 const maskingTxt = "マスクされる";
-console.log(nonMaskingTxt);
 console.log(`::add-mask::${maskingTxt}`);
+console.log(nonMaskingTxt);
 
 console.log("::set-output name=MESSAGE::Job2完了!");
 process.exit(0);
