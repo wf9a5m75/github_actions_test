@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       JOB1_RESULT: ${{ needs.job1.steps.step2.outputs.MESSAGE }}
-    inputs:
-      MESSAGE:
-
     steps:
       - run: |
           echo "$JOB1_RESULT"
