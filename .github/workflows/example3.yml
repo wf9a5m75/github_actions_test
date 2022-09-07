@@ -20,4 +20,11 @@ jobs:
     env:
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
     steps:
-      - run: echo "$JOB1_RESULT"
+      - run: |
+        echo "$JOB1_RESULT"
+        echo "::group::Group of log lines"
+        echo "line1"
+        echo "line2"
+        echo "line3"
+        echo "line4"
+        echo "::endgroup::"
