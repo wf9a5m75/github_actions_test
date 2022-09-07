@@ -4,10 +4,14 @@ OS: ${process.env.OS_TYPE}
 JOB1_RESULT: ${process.env.JOB1_RESULT}
 `);
 
-console.log("::set-output name=MESSAGE::Job2完了!");
 
 console.log("::group::My title");
 console.log(process.env);
 console.log("::endgroup::");
 
+const nonMaskingTxt = "マスクされない";
+const maskingTxt = "マスクされる";
+console.log(`${nonMaskingTxt}::add-mask::${maskingTxt}`);
+
+console.log("::set-output name=MESSAGE::Job2完了!");
 process.exit(0);
