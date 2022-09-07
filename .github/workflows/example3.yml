@@ -20,21 +20,6 @@ jobs:
     env:
       OS_TYPE: ubuntu
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
-    outputs:
-      MESSAGE: ${{ steps.step3.outputs.MESSAGE }}
     steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: actions/checkout@v3
-      - id: step3
-        run: node job2.js
-
-  job3:
-    needs: job2
-    runs-on: ubuntu-latest
-    env:
-      OS_TYPE: ubuntu
-      JOB2_RESULT: ${{ needs.job2.outputs.MESSAGE }}
-    steps:
-        - run: echo "job2 output is $JOB2_RESULT / os = $OS_TYPE"
+      - id: job2-step
+        run: echo "JOB1_RESULT: $JOB1_RESULT"
