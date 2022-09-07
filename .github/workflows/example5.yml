@@ -27,7 +27,6 @@ jobs:
 
       - run: ls .
 
-      - shell: bash
-        run: cat output-log-file
+      - run: cat output.txt
 
       - run: echo "The lint job has been completed!"
