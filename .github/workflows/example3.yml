@@ -21,14 +21,14 @@ jobs:
       OS_TYPE: windows
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
     outputs:
-      MESSAGE: ${{ steps.step_nodejs.outputs.MESSAGE }}
+      MESSAGE: ${{ steps.step3.outputs.MESSAGE }}
     steps:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - uses: actions/checkout@v3
-      - run: node job2.js
-        id: step_nodejs
+      - id: step3
+        run: node job2.js
 
   job3:
     needs: job2
@@ -37,4 +37,4 @@ jobs:
       OS_TYPE: ubuntu
       JOB2_RESULT: ${{ needs.job1.outputs.MESSAGE }}
     steps:
-        - run: echo "job2 output is $JOB2_RESULT"
+        - run: echo "job2 output is $JOB2_RESULT / os = $OS_TYPE"
