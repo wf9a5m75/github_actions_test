@@ -8,6 +8,7 @@ JOB1_RESULT: ${process.env.JOB1_RESULT}
 
 const nonMaskingTxt = "マスクされない";
 const maskingTxt = "マスクされる";
+console.log(nonMaskingTxt);
 console.log("::add-mask::" + maskingTxt);
 console.log(nonMaskingTxt);
 
