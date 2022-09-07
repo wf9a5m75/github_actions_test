@@ -17,6 +17,7 @@ jobs:
        - run: echo "The test job has been completed!"
 
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Download a single artifact
@@ -25,5 +26,5 @@ jobs:
             name: output-log-file
 
       - run: cat output-log-file
-      
+
       - run: echo "The lint job has been completed!"
