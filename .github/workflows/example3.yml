@@ -20,9 +20,17 @@ jobs:
     env:
       OS_TYPE: windows
       JOB1_RESULT: ${{ needs.job1.outputs.RESULT }}
+    outputs:
+      MESSAGE: ${{ steps.step2.outputs.MESSAGE }}
     steps:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - uses: actions/checkout@v3
       - run: node job2.js
+
+  job3:
+    needs: job2
+    runs-on: ubuntu-latest
+    steps:
+        - run: echo "job2 output is '${{ needs.job2.output.MESSAGE }}'"
