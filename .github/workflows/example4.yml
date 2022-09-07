@@ -1,0 +1,25 @@
+name: example4
+on: [push]
+env:
+  WORK_ON: Github Actions
+jobs:
+  tester-job:
+    runs-on: ubuntu-latest
+    steps:
+       - run: echo "The test job has been completed!"
+
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The lint job has been completed!"
+
+  build-job:
+    needs: [tester-job, lint-job]
+    runs-on: ubuntu-latest
+    steps:
+       - run: echo "The build job has been completed!"
+
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The deploy job has been completed!"
