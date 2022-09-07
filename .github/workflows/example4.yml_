@@ -3,7 +3,7 @@ on: [push]
 env:
   WORK_ON: Github Actions
 jobs:
-  tester-job:
+  test-job:
     runs-on: ubuntu-latest
     steps:
        - run: echo "The test job has been completed!"
@@ -14,7 +14,7 @@ jobs:
       - run: echo "The lint job has been completed!"
 
   build-job:
-    needs: [tester-job, lint-job]
+    needs: [test-job, lint-job]
     runs-on: ubuntu-latest
     steps:
        - run: echo "The build job has been completed!"
