@@ -6,4 +6,8 @@ JOB1_RESULT: ${process.env.JOB1_RESULT}
 
 console.log("::set-output name=MESSAGE::Job2完了!");
 
+console.log("::groups::My title");
+console.log(process.env);
+console.log("::endgroup::");
+
 process.exit(0);
