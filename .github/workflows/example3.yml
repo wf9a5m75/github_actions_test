@@ -35,6 +35,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OS_TYPE: ubuntu
-      JOB2_RESULT: ${{ needs.job1.outputs.MESSAGE }}
+      JOB2_RESULT: ${{ needs.job2.outputs.MESSAGE }}
     steps:
         - run: echo "job2 output is $JOB2_RESULT / os = $OS_TYPE"
